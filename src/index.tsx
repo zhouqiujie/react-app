@@ -4,12 +4,17 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import ModalGalleryExample from './test';
+
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <App />
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <ModalGalleryExample></ModalGalleryExample>
   </React.StrictMode>,
   document.getElementById('root')
 );

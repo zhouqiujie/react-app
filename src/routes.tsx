@@ -1,6 +1,6 @@
 import { IndexPage, AboutPage, HomePage } from './pages';
 import { Route } from 'react-router-dom';
-import React from 'react';
+import React, { ClassicComponent } from 'react';
 
 export interface RouteModel {
   path: string;
@@ -8,6 +8,12 @@ export interface RouteModel {
   component: any;
   routes?: RouteModel[];
 }
+
+interface functionComponent {
+  (props?: object): JSX.Element;
+}
+
+class classComponent {}
 
 export const SiteRoutes: RouteModel[] = [
   {
@@ -29,7 +35,7 @@ export function RouteWithSubRoutes(route: RouteModel) {
   return (
     <Route
       path={route.path}
-      render={props => (
+      render={(props) => (
         // pass the sub-routes down to keep nesting
         <route.component {...props} routes={route.routes} />
       )}
